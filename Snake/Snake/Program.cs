@@ -10,20 +10,27 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            try
+            {
+                Console.SetBufferSize(120, 30);
 
-            Point p2 = new Point(5, 6, '#');
-            p2.Draw();
+                HorisontalRow hrUp = new HorisontalRow(0, 118, 0, '+');
+                VerticalRow vrR = new VerticalRow(0, 29, 118, '+');
+                HorisontalRow hrDown = new HorisontalRow(0, 118, 29, '+');
+                VerticalRow vrL = new VerticalRow(0, 29, 0, '+');
 
-            HorisontalRow hr = new HorisontalRow(5, 15, 7, '_');
-            hr.Draw();
+                hrUp.Draw();
+                vrR.Draw();
+                hrDown.Draw();
+                vrL.Draw();
 
-            VerticalRow vr = new VerticalRow(8, 20, 15, '|');
-            vr.Draw();
-
-            Console.ReadKey();
-
+                Console.ReadKey();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
         }
 
 

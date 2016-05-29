@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class VerticalRow
+    class VerticalRow : Shape
     {
-        List<Point> pList;
 
         public VerticalRow(int yU, int yD, int x, char sym)
         {
@@ -17,14 +16,6 @@ namespace Snake
             {
                 Point p = new Point(x, y, sym);
                 pList.Add(p);
-            }
-        }
-
-        public void Draw()
-        {
-            foreach (Point p in pList)
-            {
-                p.Draw();
             }
         }
     }
