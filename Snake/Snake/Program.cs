@@ -24,6 +24,10 @@ namespace Snake
                 hrDown.Draw();
                 vrL.Draw();
 
+                Point p = new Point(20, 10, '*');
+                Snake sn = new Snake(p, 7, Direction.LEFT);
+                sn.Draw();
+
                 Console.ReadKey();
             }
             catch(Exception e)
