@@ -28,16 +28,16 @@ namespace Snake
                 Point p = new Point(20, 10, '*');
                 Snake sn = new Snake(p, 7, Direction.RIGHT);
                 sn.Draw();
-
-                while (true) {
-                    if (Console.KeyAvailable)
-                    {
-                        ConsoleKeyInfo key = Console.ReadKey();
-                        sn.HandleMove(key.Key);
-                    }
-                    Thread.Sleep(100);
-                    sn.Move();
-                }
+                sn.Move();
+                Thread.Sleep(300);
+                sn.Move();
+                Thread.Sleep(300);
+                sn.Move();
+                Thread.Sleep(300);
+                sn.Move();
+                Thread.Sleep(300);
+                sn.Move();
+                Thread.Sleep(300);
                 Console.ReadKey();
             }
             catch(Exception e)
