@@ -41,7 +41,7 @@ namespace Snake
 
         }
 
-        public void HandleMove(ConsoleKey key)
+        internal void HandleMove(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
             {
@@ -58,6 +58,20 @@ namespace Snake
             else if (key == ConsoleKey.DownArrow)
             {
                 direction = Direction.DOWN;
+            }
+        }
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.isHit(food))
+            {
+                food.sym = head.sym;
+                food.Draw();
+                pList.Add(food);
+                return true;
+            }else
+            {
+                return false;
             }
         }
     }
