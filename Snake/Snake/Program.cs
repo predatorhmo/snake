@@ -15,15 +15,10 @@ namespace Snake
             {
                 Console.SetBufferSize(120, 30);
 
-                HorisontalRow hrUp = new HorisontalRow(0, 118, 0, '+');
-                VerticalRow vrR = new VerticalRow(0, 29, 118, '+');
-                HorisontalRow hrDown = new HorisontalRow(0, 118, 29, '+');
-                VerticalRow vrL = new VerticalRow(0, 29, 0, '+');
 
-                hrUp.Draw();
-                vrR.Draw();
-                hrDown.Draw();
-                vrL.Draw();
+
+                Walls wall = new Walls(120, 30);
+                wall.Draw();
 
                 Point p = new Point(20, 10, '*');
                 Snake snake = new Snake(p, 7, Direction.RIGHT);
@@ -33,6 +28,10 @@ namespace Snake
                 Point food = foodCreator.CreateFood();
                 food.Draw();
                 while (true) {
+                    if(wall.isHit(snake) || snake.isHitTail())
+                    {
+                        break;
+                    }
                     if (snake.Eat(food))
                     {
                         food = foodCreator.CreateFood();
@@ -51,7 +50,6 @@ namespace Snake
                     Thread.Sleep(100);
                     //snake.Move();
                 }
-                Console.ReadKey();
             }
             catch(Exception e)
             {
